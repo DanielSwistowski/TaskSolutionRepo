@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Dane firmy";
+}
+
+<h1>Znajdź dane firmy</h1>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label col-md-2">NIP/REGON/KRS</label>
+        <input id="companyNumber" type="text" class="form-control col-md-5" placeholder="Wpisz numer" />
+        <button id="btnSearch" class="btn btn-success margin-left-10" type="button">Szukaj</button>
+        <span id="message"></span>
+    </div>
+</div>
+
+<div id="companyDetails">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>NIP</dt>
+        <dd id="nip"></dd>
+
+        <dt>REGON</dt>
+        <dd id="regon"></dd>
+
+        <dt>KRS</dt>
+        <dd id="krs"></dd>
+
+        <dt>Nazwa firmy</dt>
+        <dd id="companyName"></dd>
+
+        <dt>Miasto</dt>
+        <dd id="city"></dd>
+
+        <dt>Ulica</dt>
+        <dd id="street"></dd>
+
+        <dt>Nr domu/mieszkania</dt>
+        <dd id="houseNumber"></dd>
+
+        <dt>Kod pocztowy</dt>
+        <dd id="zipCode"></dd>
+    </dl>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval", "~/bundles/company")
+}

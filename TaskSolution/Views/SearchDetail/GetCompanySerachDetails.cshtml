@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TaskSolution.ViewModels.SearchDetailViewModel>
+
+@{
+    ViewBag.Title = "Szczegóły wyszukiwania";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeaderValues)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberType)
+        </td>
+        <td>
+            @Html.Raw(item.HeaderValues.Replace(Environment.NewLine, "<br />"))
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Wróć do listy firm", "Index", "CompanyManagement")
+</p>

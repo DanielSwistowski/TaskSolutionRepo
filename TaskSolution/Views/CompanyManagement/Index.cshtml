@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TaskSolution.ViewModels.CompanyViewModel>
+
+@{
+    ViewBag.Title = "Lista firm";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Dodaj firmę", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NIP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REGON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KRS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REGON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KRS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { companyId=item.ComanyId }) |
+            @Html.ActionLink("Szczegóły", "Details", new { companyId = item.ComanyId }) |
+            @Html.ActionLink("Usuń", "Delete", new { companyId = item.ComanyId })
+        </td>
+    </tr>
+}
+
+</table>
